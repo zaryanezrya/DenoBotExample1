@@ -8,7 +8,7 @@ const handleUpdate = webhookCallback(bot, 'express');
 
 app.use(express.json());
 
-app.post(async (req: Request, res: Response) => {
+app.post(`/${bot.token}`, async (req: Request, res: Response) => {
     const urlPath = req.path.slice(1); // Получаем путь URL, исключая начальный слэш
 
     if (req.method === "POST" && urlPath === bot.token) {
