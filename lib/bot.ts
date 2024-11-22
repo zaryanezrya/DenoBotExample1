@@ -13,18 +13,14 @@ bot.command(
     (ctx) => ctx.reply("Добро пожаловать. Запущен и работает!",{ reply_markup: keyboard }),
 );
 
-// Обработайте команду /about
-bot.command(
-    "about",
-    (ctx) => ctx.reply("Я бот? Я бот... Я Бот!",),
-);
-
 // Обработайте другие сообщения.
 bot.on("message", (ctx) => ctx.reply("Получил ваше сообщение: " + ctx.message.text + " !",));
 
 // Клавиатура будет отправлять в бота команду /about
 const keyboard = new InlineKeyboard()
     .text("Обо мне", "/about");
+
+bot.callbackQuery('/about', ctx => ctx.reply("Я бот? Я бот... Я Бот!",),)
 
 // Теперь, когда вы указали, как обрабатывать сообщения, вы можете запустить своего бота.
 // Он подключится к серверам Telegram и будет ждать сообщений.
