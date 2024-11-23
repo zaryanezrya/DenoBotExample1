@@ -8,10 +8,10 @@ const handleUpdate = webhookCallback(bot, 'express');
 
 app.use(express.json());
 
-app.post(`/${bot.token}`, async (req: Request, res: Response) => {
-    const urlPath = req.path.slice(1); // Получаем путь URL, исключая начальный слэш
+const web_hook_path = `/${bot.token}/webhook`;
 
-    if (req.method === "POST" && urlPath === bot.token) {
+app.post(`/${bot.token}`, async (req: Request, res: Response) => {
+    if (req.method === "POST" && req.path === web_hook_path) {
         try {
             await handleUpdate(req, res); // Передаем запрос и ответ в обработчик обновлений
         } catch (err) {
