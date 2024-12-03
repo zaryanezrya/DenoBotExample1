@@ -1,3 +1,4 @@
+
 import { Bot, InlineKeyboard } from "https://deno.land/x/grammy@v1.32.0/mod.ts";
 
 // Создайте экземпляр класса `Bot` и передайте ему токен вашего бота.
